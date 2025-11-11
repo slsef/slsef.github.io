@@ -79,3 +79,26 @@ footer {
   padding: 10px;
   margin-top: 40px;
 }
+
+.hero {
+  background: #e6f0ff;
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 20px;
+}
+
+/* Add consistent content width for all pages */
+.content {
+  padding: 30px 15%;
+  background: white;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-radius: 8px;
+}
+
+/* Optional: make hero text slightly narrower on large screens */
+.hero h2, .hero p {
+  max-width: 800px;
+  margin: 0 auto;
+}

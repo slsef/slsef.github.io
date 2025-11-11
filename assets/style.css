@@ -13,6 +13,12 @@ header {
   text-align: center;
 }
 
+.logo {
+  height: 60px;
+  vertical-align: middle;
+  margin-bottom: 10px;
+}
+
 header h1 {
   margin: 0;
   font-size: 1.5rem;

@@ -1,10 +1,22 @@
 // Loads the header partial and inserts it into the page.
 (function(){
-  function setActiveLink(root){
+  var LS_KEY = 'site_lang';
+
+  function currentLang(){
+    // priority: stored preference -> html[lang] -> default en
+    var stored = localStorage.getItem(LS_KEY);
+    if(stored) return stored;
+    var doclang = document.documentElement.lang;
+    return doclang === 'si' ? 'si' : 'en';
+  }
+
+  function setActiveLink(root, lang){
     var links = root.querySelectorAll('nav a');
-    var current = location.pathname.split('/').pop() || 'index.html';
+    var current = location.pathname.split('/').pop() || (lang === 'si' ? 'index-si.html' : 'index.html');
     links.forEach(function(a){
-      if(a.getAttribute('href') === current){
+      // normalize hrefs
+      var href = a.getAttribute('href');
+      if(href === current){
         a.classList.add('active');
       } else {
         a.classList.remove('active');
@@ -13,7 +25,6 @@
   }
 
   function setPageTitle(root){
-    // If page has a data-header-title attribute on the placeholder, use it.
     var placeholder = document.getElementById('header-placeholder');
     var title = placeholder && placeholder.getAttribute('data-header-title');
     var h1 = root.querySelector('#page-title');
@@ -22,25 +33,49 @@
     }
   }
 
-  function setLanguageSwitch(root){
-    var placeholder = document.getElementById('header-placeholder');
-    var lang = document.documentElement.lang || 'en';
-    var container = root.querySelector('#language-switch');
-    if(!container) return;
-    if(lang === 'en'){
-      container.innerHTML = '<strong>English</strong> | <a href="' + location.pathname.replace('.html','-si.html') + '">සිංහල</a>';
-      container.style.display = '';
-    } else if(lang === 'si'){
-      container.innerHTML = '<a href="' + location.pathname.replace('-si.html','.html') + '">English</a> | <strong>සිංහල</strong>';
-      container.style.display = '';
+  function buildPathForLang(pathname, lang){
+    // swap base filename to -si variants or plain
+    if(!pathname) pathname = location.pathname.split('/').pop() || 'index.html';
+    if(lang === 'si'){
+      if(pathname.endsWith('-si.html')) return pathname;
+      return pathname.replace(/\.html$/, '-si.html');
     } else {
-      container.style.display = 'none';
+      if(pathname.endsWith('-si.html')) return pathname.replace(/-si\.html$/, '.html');
+      return pathname;
     }
   }
 
+  function onLangChange(ev){
+    var sel = ev.target;
+    var newLang = sel.value;
+    localStorage.setItem(LS_KEY, newLang);
+    // compute target page in selected language
+    var target = buildPathForLang(location.pathname.split('/').pop(), newLang);
+    // If already on that page, just reload to apply lang changes
+    if(location.pathname.split('/').pop() === target){
+      // update html lang and update header in-place
+      document.documentElement.lang = newLang === 'si' ? 'si' : 'en';
+      // reload header to swap content
+      loadHeader();
+      return;
+    }
+    // otherwise navigate to the page in selected language (preserve query/hash)
+    var newUrl = location.pathname.replace(/[^\/]*$/, target) + location.search + location.hash;
+    location.href = newUrl;
+  }
+
+  function wireLangSelect(root, lang){
+    var sel = root.querySelector('#lang-select');
+    if(!sel) return;
+    sel.value = lang;
+    sel.addEventListener('change', onLangChange);
+  }
+
   function loadHeader(){
-    fetch('partials/header.html', {cache: 'no-cache'}).then(function(res){
-      if(!res.ok) throw new Error('Could not load header');
+    var lang = currentLang();
+    var partial = lang === 'si' ? 'partials/header-si.html' : 'partials/header.html';
+    fetch(partial, {cache: 'no-cache'}).then(function(res){
+      if(!res.ok) throw new Error('Could not load header: ' + partial);
       return res.text();
     }).then(function(html){
       var container = document.createElement('div');
@@ -49,9 +84,9 @@
       var ph = document.getElementById('header-placeholder');
       if(ph && header){
         ph.parentNode.replaceChild(header, ph);
-        setActiveLink(header);
+        setActiveLink(header, lang);
         setPageTitle(header);
-        setLanguageSwitch(header);
+        wireLangSelect(header, lang);
       }
     }).catch(function(err){
       console.error(err);

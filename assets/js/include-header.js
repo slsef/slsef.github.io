@@ -11,17 +11,30 @@
   }
 
   function setActiveLink(root, lang){
-    var links = root.querySelectorAll('nav a');
+    var links = root.querySelectorAll('.nav-link');
     var current = location.pathname.split('/').pop() || (lang === 'si' ? 'index-si.html' : 'index.html');
     links.forEach(function(a){
-      // normalize hrefs
       var href = a.getAttribute('href');
       if(href === current){
         a.classList.add('active');
+        a.setAttribute('aria-current','page');
       } else {
         a.classList.remove('active');
+        a.removeAttribute('aria-current');
       }
     });
+    // close navbar collapse on small screens when a link is clicked
+    var collapseEl = root.querySelector('#mainNavbar');
+    if(collapseEl){
+      root.querySelectorAll('.nav-link').forEach(function(link){
+        link.addEventListener('click', function(){
+          if(window.bootstrap && collapseEl.classList.contains('show')){
+            var bsCollapse = bootstrap.Collapse.getInstance(collapseEl) || new bootstrap.Collapse(collapseEl);
+            bsCollapse.hide();
+          }
+        });
+      });
+    }
   }
 
   function setPageTitle(root){

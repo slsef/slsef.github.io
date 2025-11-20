@@ -1,21 +1,27 @@
+:root{
+  --brand: #003366;
+  --brand-contrast: #ffffff;
+  --muted-bg: #f6f9fc;
+}
+
 body {
   font-family: 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   margin: 0;
-  background: #f6f9fc;
+  background: var(--muted-bg);
   color: #222;
 }
 
 header {
-  background: #003366;
-  color: white;
+  background: var(--brand);
+  color: var(--brand-contrast);
   padding: 20px;
   text-align: center;
 }
 
 /* make header content align better and allow language selector to sit in top-right */
 header .header-inner{
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
@@ -35,6 +41,15 @@ header .header-inner{
   height: 60px;
   vertical-align: middle;
   margin-bottom: 10px;
+}
+
+/* small brand shown only on mobile next to the logo */
+.navbar-brand #brand-name-sm {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 header h1 {
@@ -68,87 +83,42 @@ nav a:hover, nav a.active {
   text-decoration: underline;
 }
 
-.hero {
-  background: #e6f0ff;
-  text-align: center;
-  padding: 60px 20px;
-}
-
-.hero h2 {
-  color: #003366;
-}
-
-.button {
-  display: inline-block;
-  background: #003366;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-.button:hover {
-  background: #0055cc;
-}
-
+/* ===== Content area ===== */
 .content {
-  padding: 30px 15%;
+  /* Bootstrap's container handles width; keep visual card styling here */
   background: white;
-}
-
-.content h2 {
-  color: #003366;
-}
-
-footer {
-  background: #003366;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  margin-top: 40px;
-}
-
-.hero {
-  background: #e6f0ff;
-  text-align: center;
-  padding: 60px 20px;
-  margin-bottom: 20px;
-}
-
-/* Add consistent content width for all pages */
-.content {
-  padding: 30px 15%;
-  background: white;
-  max-width: 900px;
+  padding: 1.25rem; /* small internal padding; pages also use container-lg */
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
   border-radius: 8px;
 }
 
-/* Optional: make hero text slightly narrower on large screens */
-.hero h2, .hero p {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 .content h2 {
+  color: var(--brand);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .content section {
-  margin-bottom: 30px;
+  margin-bottom: 1.25rem;
 }
 
 .content ul {
-  margin-left: 30px;
-  list-style: disc;
+  margin-left: 1.25rem;
 }
 
+/* ===== Footer ===== */
+footer {
+  background: var(--brand);
+  color: var(--brand-contrast);
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
+}
+
+/* ===== Utilities ===== */
 .language-switch {
   text-align: right;
-  margin-right: 15%;
   font-size: 0.9em;
 }
 

@@ -12,6 +12,12 @@ body {
   color: #222;
 }
 
+/* While JS is enabled and header is loading, hide page content until header is ready.
+   The inline script in each page sets html.js-hide-body; removed when header insert completes. */
+html.js-hide-body body > :not(#header-placeholder) {
+  visibility: hidden;
+}
+
 header {
   background: var(--brand);
   color: var(--brand-contrast);

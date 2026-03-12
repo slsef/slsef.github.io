@@ -409,12 +409,13 @@ main.content {
 
 .page-hero h1 {
   margin: 0.85rem 0 0;
-  max-width: 15ch;
+  max-width: 13ch;
   color: var(--brand-contrast);
   font-family: "Newsreader", "Noto Serif Sinhala", serif;
-  font-size: clamp(2.5rem, 4vw, 4.75rem);
-  line-height: 0.95;
+  font-size: clamp(2rem, 3.2vw, 3.9rem);
+  line-height: 1;
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .page-hero p {
@@ -506,14 +507,28 @@ main.content {
   display: block;
   color: var(--brand-contrast);
   font-family: "Newsreader", "Noto Serif Sinhala", serif;
-  font-size: 1.8rem;
-  line-height: 1;
+  font-size: clamp(1.3rem, 1.1vw + 0.95rem, 1.7rem);
+  line-height: 1.12;
+  overflow-wrap: anywhere;
 }
 
 .stat-card span {
   display: block;
   margin-top: 0.45rem;
   color: rgba(255, 255, 255, 0.8);
+  overflow-wrap: anywhere;
+}
+
+html[lang="si"] .page-hero h1 {
+  max-width: 11ch;
+  font-size: clamp(1.85rem, 2.7vw, 3.15rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+html[lang="si"] .stat-card strong {
+  font-size: clamp(1.15rem, 0.9vw + 0.9rem, 1.5rem);
+  line-height: 1.18;
 }
 
 .card-surface,

@@ -389,8 +389,8 @@ main.content {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.95fr) minmax(220px, 0.72fr);
+  gap: 2rem;
   align-items: end;
 }
 
@@ -409,7 +409,7 @@ main.content {
 
 .page-hero h2 {
   margin: 0.85rem 0 0;
-  max-width: 13ch;
+  max-width: 15ch;
   color: var(--brand-contrast);
   font-family: "Newsreader", "Noto Serif Sinhala", serif;
   font-size: clamp(2rem, 3.2vw, 3.9rem);
@@ -435,7 +435,9 @@ main.content {
 }
 
 .hero-panel {
-  padding: 1.35rem;
+  max-width: 22rem;
+  justify-self: end;
+  padding: 1.15rem 1.2rem;
   color: var(--text);
 }
 
@@ -520,7 +522,7 @@ main.content {
 }
 
 html[lang="si"] .page-hero h2 {
-  max-width: 11ch;
+  max-width: 13ch;
   font-size: clamp(1.85rem, 2.7vw, 3.15rem);
   line-height: 1.08;
   letter-spacing: -0.025em;

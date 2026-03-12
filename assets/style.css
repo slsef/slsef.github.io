@@ -407,7 +407,7 @@ main.content {
   text-transform: uppercase;
 }
 
-.page-hero h1 {
+.page-hero h2 {
   margin: 0.85rem 0 0;
   max-width: 13ch;
   color: var(--brand-contrast);
@@ -519,7 +519,7 @@ main.content {
   overflow-wrap: anywhere;
 }
 
-html[lang="si"] .page-hero h1 {
+html[lang="si"] .page-hero h2 {
   max-width: 11ch;
   font-size: clamp(1.85rem, 2.7vw, 3.15rem);
   line-height: 1.08;

@@ -1,17 +1,23 @@
-<header>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background:#003366;">
-    <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="index-si.html">
-        <img src="assets/images/logo.png" alt="SLSEF Logo" height="48" class="d-inline-block align-text-top">
-  <span class="ms-2 d-none d-lg-inline" id="brand-name">ශ්‍රී ලංකා ශිෂ්‍ය සවිබල ගැන්වීමේ අරමුදල (SLSEF)</span>
-        <span class="ms-2 d-inline d-lg-none small" id="brand-name-sm">SLSEF</span>
+<header id="site-header" class="site-header">
+  <nav class="navbar navbar-expand-lg navbar-dark site-nav">
+    <div class="container-xl">
+      <a class="navbar-brand brand-lockup" href="index-si.html">
+        <span class="brand-mark">
+          <img src="assets/images/logo.png" alt="SLSEF Logo" class="brand-logo">
+        </span>
+        <span class="brand-copy">
+          <span class="brand-overline">ශිෂ්‍යත්ව සහ මාර්ගෝපදේශනය</span>
+          <span class="brand-name d-none d-lg-inline" id="brand-name">ශ්‍රී ලංකා ශිෂ්‍ය සවිබල ගැන්වීමේ අරමුදල</span>
+          <span class="brand-name d-inline d-lg-none" id="brand-name-sm">SLSEF</span>
+        </span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav nav-links mx-auto mb-3 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="index-si.html">මුල් පිටුව</a></li>
           <li class="nav-item"><a class="nav-link" href="about-si.html">අප ගැන</a></li>
           <li class="nav-item"><a class="nav-link" href="apply-si.html">අයදුම් කරන්න</a></li>
@@ -19,7 +25,8 @@
           <li class="nav-item"><a class="nav-link" href="contact-si.html">සම්බන්ධ වන්න</a></li>
         </ul>
 
-        <div class="d-flex">
+        <div class="header-tools d-flex align-items-center">
+          <label class="visually-hidden" for="lang-select">භාෂාව</label>
           <select id="lang-select" class="form-select form-select-sm" aria-label="Language switch">
             <option value="en">English</option>
             <option value="si">සිංහල</option>

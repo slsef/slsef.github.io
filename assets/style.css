@@ -389,7 +389,7 @@ main.content {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.95fr) minmax(220px, 0.72fr);
+  grid-template-columns: minmax(0, 1.88fr) minmax(260px, 0.8fr);
   gap: 2rem;
   align-items: end;
 }
@@ -435,7 +435,7 @@ main.content {
 }
 
 .hero-panel {
-  max-width: 22rem;
+  max-width: 24rem;
   justify-self: end;
   padding: 1.15rem 1.2rem;
   color: var(--text);

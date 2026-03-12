@@ -409,13 +409,13 @@ main.content {
 
 .page-hero h2 {
   margin: 0.85rem 0 0;
-  max-width: 15ch;
+  max-width: 8.4em;
   color: var(--brand-contrast);
   font-family: "Newsreader", "Noto Serif Sinhala", serif;
   font-size: clamp(2rem, 3.2vw, 3.9rem);
   line-height: 1;
   letter-spacing: -0.04em;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .page-hero p {
@@ -522,7 +522,7 @@ main.content {
 }
 
 html[lang="si"] .page-hero h2 {
-  max-width: 13ch;
+  max-width: 9.6em;
   font-size: clamp(1.85rem, 2.7vw, 3.15rem);
   line-height: 1.08;
   letter-spacing: -0.025em;

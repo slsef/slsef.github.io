@@ -376,7 +376,7 @@ main.content {
 
 .page-hero h1 {
   margin: 0.85rem 0 0;
-  max-width: 12ch;
+  max-width: 15ch;
   color: var(--brand-contrast);
   font-family: "Newsreader", "Noto Serif Sinhala", serif;
   font-size: clamp(2.5rem, 4vw, 4.75rem);
@@ -405,12 +405,25 @@ main.content {
   color: var(--text);
 }
 
+.hero-panel h2 {
+  margin: 0 0 0.65rem;
+  color: var(--brand-deep);
+  font-family: "Newsreader", "Noto Serif Sinhala", serif;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  letter-spacing: -0.02em;
+}
+
 .hero-panel p {
   color: var(--text);
 }
 
 .hero-panel p + p {
   margin-top: 0.75rem;
+}
+
+.page-hero .action-row,
+.page-hero .stat-grid {
+  margin-top: 1.35rem;
 }
 
 .section-heading {
@@ -427,7 +440,8 @@ main.content {
 }
 
 .stat-grid,
-.grid-two {
+.grid-two,
+.grid-three {
   display: grid;
   gap: 1rem;
 }
@@ -438,6 +452,10 @@ main.content {
 
 .grid-two {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .stat-card,
@@ -586,6 +604,7 @@ main.content {
 
   .hero-grid,
   .grid-two,
+  .grid-three,
   .stat-grid,
   .site-footer-grid {
     grid-template-columns: 1fr;
